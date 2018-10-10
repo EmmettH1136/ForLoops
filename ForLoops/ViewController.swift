@@ -8,15 +8,31 @@
 
 import UIKit
 var list = ["here"]
-
+struct Word {
+    var imagee : String
+    var correct : String
+    init(_ beep : String, _ weep : String) {
+        self.imagee = beep
+        self.correct = weep
+    }
+}
+let bee = Word("Bee", "Bee")
+let death = Word("Death", "Death")
+let gate = Word("Gate", "Gate")
+let leg = Word("Leg", "Leg")
+let elements = [bee, death, gate, leg]
+var currentQ = bee
 
 class ViewController: UIViewController {
     @IBOutlet weak var result: UILabel!
     @IBOutlet weak var textFeeeld: UITextField!
     @IBOutlet weak var button: UIButton!
-    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var rightImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        currentQ = elements.randomElement()!
+        imageView.image = UIImage(named: currentQ.imagee)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -36,11 +52,17 @@ class ViewController: UIViewController {
         if nubmers == 0 {
             result.text = "Nope"
         } else {
-            
             list2[nubmers - 1] = list2[nubmers - 1].lowercased()
             list2[0] = list2[0].uppercased()
             let wwww = list2.joined(separator: "")
             result.text = "\(wwww)"
+            if result.text == currentQ.correct {
+                rightImage.image = UIImage(named: "check")
+                currentQ = elements.randomElement()!
+                imageView.image = UIImage(named: currentQ.imagee)
+            } else {
+                rightImage.image = UIImage(named: "X")
+            }
         }
         
     }
