@@ -20,7 +20,14 @@ let bee = Word("Bee", "Bee")
 let death = Word("Death", "Death")
 let gate = Word("Gate", "Gate")
 let leg = Word("Leg", "Leg")
-let elements = [bee, death, gate, leg]
+let circle = Word("Circle", "Circle")
+let coal = Word("Coal", "Coal")
+let feast = Word("Feast", "Feast")
+let lizards = Word("Lizards", "Lizards")
+let rice = Word("Rice", "Rice")
+let stop = Word("STOP", "Stop")
+let umbrella = Word("Umbrella", "Umbrella")
+let elements = [bee, death, gate, leg, circle, coal, feast, lizards, rice, stop, umbrella]
 var currentQ = bee
 
 class ViewController: UIViewController {
